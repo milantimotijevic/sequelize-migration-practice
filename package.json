@@ -1,11 +1,16 @@
 {
-  "name": "sequelize-practice2",
+  "name": "sequelize-migration-practice",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^7.6.0",
+    "sequelize": "^4.41.0",
+    "sequelize-cli": "^5.2.0"
+  }
 }

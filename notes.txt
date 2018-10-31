@@ -1,0 +1,33 @@
+reference: http://docs.sequelizejs.com/manual/tutorial/migrations.html
+
+install sequelize-cli first:
+npm install --save sequelize-cli
+
+init migration setup (create folders and config file):
+node_modules/.bin/sequelize init
+
+create first model and migration:
+node_modules/.bin/sequelize model:generate --name User --attributes firstName:string,lastName:string,email:string
+
+execute all migrations:
+node_modules/.bin/sequelize db:migrate
+
+undo last migration:
+node_modules/.bin/sequelize db:migrate:undo
+
+undo all migrations:
+node_modules/.bin/sequelize db:migrate:undo:all
+
+feel free to create migrations yourself. put them into the 'migrations' folder and simply prepend them with a number (incremental)
+all migrations need to have 'up' and 'down' functions. see the default one for reference
+
+migration example:
+'use strict';
+module.exports = {
+    up: (queryInterface, Sequelize) => {
+        return queryInterface.addColumn('users', 'stuff', Sequelize.STRING);
+    },
+    down: (queryInterface, Sequelize) => {
+        return queryInterface.removeColumn('users', 'stuff');
+    }
+};
