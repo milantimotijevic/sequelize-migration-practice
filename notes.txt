@@ -31,3 +31,25 @@ module.exports = {
         return queryInterface.removeColumn('users', 'stuff');
     }
 };
+
+sequelize migrations:
+node_modules/.bin/sequelize init
+
+node_modules/.bin/sequelize model:generate --name User --attributes firstName:string,lastName:string,email:string
+
+node_modules/.bin/sequelize db:create
+
+node_modules/.bin/sequelize db:migrate
+
+drop type example:
+drop type enum_accounts_gender;
+where enum stays enum, accounts stands for table and gender stands for enum name
+
+create new migration file:
+node_modules/.bin/sequelize migration:generate --name [name_of_your_migration]
+
+seeding:
+node_modules/.bin/sequelize db:seed:all
+
+for some reason seeding only works if you use :all
+don’t question it, just go with the flow…
